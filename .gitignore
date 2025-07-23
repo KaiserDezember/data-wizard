@@ -1,2 +1,8 @@
-﻿data/*.geojson
-data/**/*.geojson
+﻿# Alles ignorieren
+*
+
+# Aber diese 4 Dateien erlauben
+!index.html
+!main.js
+!style.css
+!.gitignore
