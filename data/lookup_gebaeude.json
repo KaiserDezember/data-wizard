@@ -1,0 +1,14 @@
+{
+    "Hansastraße 9": {
+        "oid": "1001",
+        "anzahlgs": 4,
+        "funktion": "Gewerbe",
+        "lagebeztxt": "Hansastraße 9"
+    },
+    "Roonstraße 26": {
+        "oid": "1002",
+        "anzahlgs": 4,
+        "funktion": "Wohnen",
+        "lagebeztxt": "Roonstraße 26"
+    }
+}
