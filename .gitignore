@@ -1,8 +1,12 @@
 ﻿# Alles ignorieren
 *
 
-# Aber diese 4 Dateien erlauben
+# Aber diese 6 Dateien erlauben
 !index.html
 !main.js
 !style.css
 !.gitignore
+data/*
+!data/lookup_flurstuecke.json
+!data/lookup_gebaeude.json
+
