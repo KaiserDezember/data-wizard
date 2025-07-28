@@ -1,75 +1,19 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-    <meta charset="utf-8" />
-    <title>Mapbox Gebäude & Flurstücke</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet" />
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6.5.0/turf.min.js"></script>
-    <style>
-        body { margin: 0; padding: 0; }
-        #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-        .map-controls {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 1;
-            background: white;
-            padding: 6px;
-            box-shadow: 0 0 6px rgba(0,0,0,0.15);
-            border-radius: 4px;
-        }
-        .map-controls button {
-            margin: 3px;
-            padding: 6px 10px;
-            cursor: pointer;
-            border: none;
-            background: #eee;
-            border-radius: 4px;
-        }
-        .search-controls {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            z-index: 2;
-            background: white;
-            padding: 12px;
-            border-radius: 6px;
-            box-shadow: 0 0 6px rgba(0,0,0,0.15);
-            min-width: 220px;
-            max-width: 260px;
-        }
-        .search-controls form {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .search-controls input,
-        .search-controls select,
-        .search-controls button {
-            width: 100%;
-            box-sizing: border-box;
-        }
-        #trefferliste {
-            max-height: 200px;
-            overflow: auto;
-            margin-top: 10px;
-        }
-        #trefferliste div {
-            cursor: pointer;
-            padding: 4px 2px;
-            border-bottom: 1px solid #eee;
-        }
-        #trefferliste div:hover {
-            background: #f0f0f0;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Hamburg Map Tool</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Mapbox CSS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Turf für Flächenberechnung -->
+    <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
 </head>
 <body>
-    <div id="map"></div>
-    <!-- Suchmaske und Trefferliste -->
-    <div class="search-controls">
+    <div id="controls">
         <form id="searchForm">
             <input type="text" id="adresse" placeholder="Adresse">
             <input type="text" id="plz" placeholder="PLZ">
@@ -78,14 +22,19 @@
             <input type="text" id="flurstueck" placeholder="Flurstücksnummer">
             <input type="number" id="flaecheMin" placeholder="Fläche min">
             <input type="number" id="flaecheMax" placeholder="Fläche max">
-            <button type="submit">Suchen</button>
+            <button type="submit">🔍 Suchen</button>
         </form>
+        <div id="toggle-buttons">
+            <button id="standard">🗺️ Standard</button>
+            <button id="satellite">🛰️ Satellit</button>
+        </div>
         <div id="trefferliste"></div>
     </div>
-    <div class="map-controls">
-        <button id="standard">Standard</button>
-        <button id="satellite">Satellit</button>
-    </div>
+
+    <div id="map"></div>
+
+    <!-- Mapbox JS -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
